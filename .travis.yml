@@ -1,0 +1,13 @@
+#services:
+#- postgresql
+#before_script:
+# - psql -c 'create database cfdb;' -U postgres
+# - psql -U postgres -d cfdb -f script/database/create_tables.sql                 
+# - psql -U postgres -d cfdb -f script/database/insert_records.sql
+# - cd src/CFTeC/
+
+# - ls
+language: java
+jdk:
+  - oraclejdk8
+script: mvn clean verify -DskipTests=false -DskipITs=false -DskipSTs=false
