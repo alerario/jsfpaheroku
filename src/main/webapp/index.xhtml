@@ -18,7 +18,8 @@
             <h:commandButton value="Clique aqui para configurar o banco" action="#{jSFHerokuBDSetup.configurar()}"/>
             <br/>
             <h:outputText value="#{jSFHerokuBDSetup.conf}"/><br/>
-            host: <h:outputText value="#{jSFHerokuBDSetup.host}" />
+            host: <h:outputText value="#{jSFHerokuBDSetup.host}" /> <br/>
+            banco de dados: <h:outputText value="#{jSFHerokuBDSetup.databaseName}"/>
         </h:form>
     </h:body>
 </html>
