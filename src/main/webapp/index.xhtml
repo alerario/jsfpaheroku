@@ -13,6 +13,12 @@
         <br/> utilize os mesmos nomes de app no heroku e de repositorio no github
         <br/> configurado o pom.xml--- adicionado webapp-runner
         <br/> Criado arquivo Procfile -- ensinar o heroku executar o app
+        
+        <h:form>
+            <h:commandButton value="Clique aqui para configurar o banco" action="#{jSFHerokuBDSetup.configurar()}"/>
+            <br/>
+            <h:outputText value="#{jSFHerokuBDSetup.conf}"/>
+        </h:form>
     </h:body>
 </html>
 
