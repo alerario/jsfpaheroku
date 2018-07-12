@@ -4,10 +4,10 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/cfdb"/>
-      <property name="javax.persistence.jdbc.user" value="postgres"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:postgres://okdvfyabceaqmz:037e654cd0b0f5b25b3973734a99cc9b3cec28a354eee53d92d742e0e4737ce3@ec2-184-73-202-79.compute-1.amazonaws.com:5432/d27dm10t2iscbc"/>
+      <property name="javax.persistence.jdbc.user" value="okdvfyabceaqmz"/>
       <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-      <property name="javax.persistence.jdbc.password" value="postgres"/>
+      <property name="javax.persistence.jdbc.password" value="037e654cd0b0f5b25b3973734a99cc9b3cec28a354eee53d92d742e0e4737ce3"/>
     </properties>
   </persistence-unit>
 </persistence>
