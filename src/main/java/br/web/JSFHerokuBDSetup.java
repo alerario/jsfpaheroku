@@ -46,10 +46,10 @@ public class JSFHerokuBDSetup {
         String databaseName = st.nextToken();
         String jdbcUrl = String.format("jdbc:postgresql://%s:%s/%s?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory", host, port, databaseName);
         Map<String, String> properties = new HashMap<String, String>();
-        properties.put("javax.persistence.jdbc.url", databaseUrl);
-        properties.put("javax.persistence.jdbc.user", userName);
-        properties.put("javax.persistence.jdbc.password", password);
-        properties.put("javax.persistence.jdbc.driver", "org.postgresql.Driver");
+        properties.replace("javax.persistence.jdbc.url", databaseUrl);
+        properties.replace("javax.persistence.jdbc.user", userName);
+        properties.replace("javax.persistence.jdbc.password", password);
+        properties.replace("javax.persistence.jdbc.driver", "org.postgresql.Driver");
        // properties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
         EntityManagerFactory emf = Persistence.createEntityManagerFactory(br.data.crud.EMNames.EMN1, properties);
         
