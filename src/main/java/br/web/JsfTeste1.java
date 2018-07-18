@@ -5,7 +5,6 @@
  */
 package br.web;
 
-import br.data.crud.CrudTeste1;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -18,25 +17,17 @@ import javax.faces.event.ActionEvent;
  */
 @ManagedBean
 @RequestScoped
-public class JsfTeste {
+public class JsfTeste1 {
 
     /**
-     * Creates a new instance of JsfTeste
+     * Creates a new instance of JsfTeste1
      */
-    public JsfTeste() {
+    public JsfTeste1() {
     }
 
     private int codigo;
     private String nome;
-    private int codTeste1;
-
-    public int getCodTeste1() {
-        return codTeste1;
-    }
-
-    public void setCodTeste1(int codTeste1) {
-        this.codTeste1 = codTeste1;
-    }
+    
 
     public int getCodigo() {
         return codigo;
@@ -55,16 +46,14 @@ public class JsfTeste {
     }
 
     public String persist() {
-        br.data.entity.Teste tes;
-        tes = new br.data.entity.Teste();
+        br.data.entity.Teste1 tes;
+        tes = new br.data.entity.Teste1();
         tes.setCodigo(codigo);
         tes.setNome(nome);
-        tes.setTeste1(new CrudTeste1().find(this.getCodTeste1()));
-        Exception insert = new br.data.crud.CrudTeste().persist(tes);
+        Exception insert = new br.data.crud.CrudTeste1().persist(tes);
         if (insert == null) {
             this.setCodigo(0);
             this.setNome("");
-            this.setCodTeste1(0);
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!!", "Registro adicionado com sucesso");
             FacesContext.getCurrentInstance().addMessage(null, message);
 
@@ -78,20 +67,20 @@ public class JsfTeste {
         return "/operacoes/index.xhtml";
     }
 
-    public java.util.List<br.data.entity.Teste> getAll() {
-        return new br.data.crud.CrudTeste().getAll();
+    public java.util.List<br.data.entity.Teste1> getAll() {
+        return new br.data.crud.CrudTeste1().getAll();
     }
 
-    public java.util.List<br.data.entity.Teste> getSelect() {
+    public java.util.List<br.data.entity.Teste1> getSelect() {
         if (this.nome != null && !this.nome.equals("")) {
-            return new br.data.crud.CrudTeste().SelectByNome(nome);
+            return new br.data.crud.CrudTeste1().SelectByNome(nome);
         } else {
             return null;
         }
     }
 
-    public void remove(br.data.entity.Teste teste) {
-        Exception e =new br.data.crud.CrudTeste().remove(teste);
+    public void remove(br.data.entity.Teste1 teste) {
+        Exception e =new br.data.crud.CrudTeste1().remove(teste);
          if (e == null) {
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!!", "Registro excluido com sucesso");
             FacesContext.getCurrentInstance().addMessage(null, message);
@@ -103,19 +92,17 @@ public class JsfTeste {
         }
     }
 
-    public String update(br.data.entity.Teste teste) {
+    public String update(br.data.entity.Teste1 teste) {
         this.codigo = teste.getCodigo();
         this.nome = teste.getNome();
-        this.codTeste1 = teste.getTeste1().getCodigo();
         return "merge.xhtml";
     }
 
     public String merge() {
-        br.data.entity.Teste tes;
-        tes = new br.data.crud.CrudTeste().find(this.codigo);
+        br.data.entity.Teste1 tes;
+        tes = new br.data.crud.CrudTeste1().find(this.codigo);
         tes.setNome(nome);
-        tes.setTeste1(new CrudTeste1().find(this.codTeste1));
-        Exception e = new br.data.crud.CrudTeste().merge(tes);
+        Exception e = new br.data.crud.CrudTeste1().merge(tes);
         if (e == null) {
             this.setCodigo(0);
             this.setNome("");

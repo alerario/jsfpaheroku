@@ -22,7 +22,10 @@
                     </h:column>
                     <h:column>
                         <h:outputText value="#{stes.nome}" />
-                    </h:column>                    
+                    </h:column>                   
+                     <h:column>
+                        <h:outputText value="#{stes.teste1.nome}"/>
+                    </h:column>
                     <h:column>
                         <p:commandButton value="remover" action="#{jsfTeste.remove(stes)}" onclick="return confirm('Confirma exclusao?');" ajax="false" /> 
                     </h:column>

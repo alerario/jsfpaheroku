@@ -6,35 +6,32 @@
 package br.data.entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author utfpr
+ * @author alexandrelerario
  */
 @Entity
-@Table(name = "teste")
+@Table(name = "teste1")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Teste.findAll", query = "SELECT t FROM Teste t")
-    , @NamedQuery(name = "Teste.findByCodigo", query = "SELECT t FROM Teste t WHERE t.codigo = :codigo")
-    , @NamedQuery(name = "Teste.findByNome", query = "SELECT t FROM Teste t WHERE upper(t.nome) like :nome")})
-public class Teste implements Serializable {
-
-    @JoinColumn(name = "teste1", referencedColumnName = "codigo")
-    @ManyToOne
-    private Teste1 teste1;
+    @NamedQuery(name = "Teste1.findAll", query = "SELECT t FROM Teste1 t")
+    , @NamedQuery(name = "Teste1.findByCodigo", query = "SELECT t FROM Teste1 t WHERE t.codigo = :codigo")
+    , @NamedQuery(name = "Teste1.findByNome", query = "SELECT t FROM Teste1 t WHERE t.nome = :nome")})
+public class Teste1 implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -45,11 +42,13 @@ public class Teste implements Serializable {
     @Size(max = 255)
     @Column(name = "nome")
     private String nome;
+    @OneToMany(mappedBy = "teste1")
+    private Collection<Teste> testeCollection;
 
-    public Teste() {
+    public Teste1() {
     }
 
-    public Teste(Integer codigo) {
+    public Teste1(Integer codigo) {
         this.codigo = codigo;
     }
 
@@ -69,6 +68,15 @@ public class Teste implements Serializable {
         this.nome = nome;
     }
 
+    @XmlTransient
+    public Collection<Teste> getTesteCollection() {
+        return testeCollection;
+    }
+
+    public void setTesteCollection(Collection<Teste> testeCollection) {
+        this.testeCollection = testeCollection;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -79,10 +87,10 @@ public class Teste implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Teste)) {
+        if (!(object instanceof Teste1)) {
             return false;
         }
-        Teste other = (Teste) object;
+        Teste1 other = (Teste1) object;
         if ((this.codigo == null && other.codigo != null) || (this.codigo != null && !this.codigo.equals(other.codigo))) {
             return false;
         }
@@ -91,15 +99,7 @@ public class Teste implements Serializable {
 
     @Override
     public String toString() {
-        return "br.data.entity.Teste[ codigo=" + codigo + " ]";
-    }
-
-    public Teste1 getTeste1() {
-        return teste1;
-    }
-
-    public void setTeste1(Teste1 teste1) {
-        this.teste1 = teste1;
+        return "br.data.entity.Teste1[ codigo=" + codigo + " ]";
     }
     
 }

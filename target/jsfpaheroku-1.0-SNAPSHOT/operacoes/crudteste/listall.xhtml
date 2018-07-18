@@ -8,7 +8,7 @@
     <ui:composition template="../layout_operacoes.xhtml">
 
         <ui:define name="content">
-            <h1>Listar todos os sites</h1>
+            <h1>Listar todos os testes</h1>
             <h:form>
                 <p:messages id="messages" showDetail="true" closable="true">
                     <p:autoUpdate />
@@ -21,10 +21,13 @@
                         <h:outputText value="#{tes.nome}" />
                     </h:column>
                     <h:column>
+                        <h:outputText value="#{tes.teste1.nome}"/>
+                    </h:column>
+                    <h:column>
                         <p:commandButton value="remover" action="#{jsfTeste.remove(tes)}" onclick="return confirm('Confirma exclusao?');" ajax="false"/> 
                     </h:column>
                     <h:column>
-                        <p:commandButton value="editar" action="#{jsfTeste.update(tes)}"/> 
+                        <p:commandButton value="editar" action="#{jsfTeste.update(tes)}" ajax="false"/> 
                     </h:column>
                 </h:dataTable>
             </h:form>
