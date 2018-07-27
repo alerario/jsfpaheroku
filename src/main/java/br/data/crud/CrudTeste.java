@@ -17,7 +17,8 @@ public class CrudTeste extends AbstractCrud<br.data.entity.Teste> {
 
     private EntityManager em;
 
-    private static final String PU = EMNames.EMN1;
+    //private static final String PU = EMNames.EMN1;
+    //private static final 
 
     public CrudTeste() {
         super(br.data.entity.Teste.class);
@@ -37,7 +38,7 @@ public class CrudTeste extends AbstractCrud<br.data.entity.Teste> {
     @Override
     protected EntityManager getEntityManager() {
         if (em == null) {
-            em = Persistence.createEntityManagerFactory(PU).createEntityManager();
+            em = Persistence.createEntityManagerFactory(EMNames.EMN1, EMNames.getEMN1Props()).createEntityManager();
         }
         return em;
     }
