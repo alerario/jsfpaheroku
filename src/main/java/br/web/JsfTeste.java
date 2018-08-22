@@ -130,22 +130,4 @@ public class JsfTeste {
         return "/operacoes/index.xhtml";
     }
     
-    public void buttonAction(ActionEvent actionEvent) {
-        System.out.println("ola mundo ======================");
-    }
-    
-    public String getEnv(){
-        String txt="";
-        txt = txt + "DATABASE_URL: " + System.getenv("DATABASE_URL");
-        txt = txt + "  ";
-        txt = txt + "JDBC_DATABASE_URL: " + System.getenv("JDBC_DATABASE_URL");
-        txt = txt +  "  ";
-        txt = txt + "JDBC_DATABASE_USERNAME: " + System.getenv("JDBC_DATABASE_USERNAME");
-        txt = txt + "  ";
-        txt = txt + "JDBC_DATABASE_PASSWORD: " + System.getenv("JDBC_DATABASE_PASSWORD");
-        txt = txt + "   ";
-        txt = txt + "JDBC_DATABASE_PASSWORD: " + System.getenv("JDBC_DATABASE_PASSWORD");
-        txt = txt + "   ";
-        return txt;
-    }
 }
