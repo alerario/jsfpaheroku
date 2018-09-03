@@ -24,14 +24,27 @@
                             <p:menuitem value="Exibir todos"  icon="ui-icon-document-b"   url="/faces/operacoes/crudteste/listall.xhtml" />
                             <p:menuitem value="Inserir registro" icon="ui-icon-newwin" url="/faces/operacoes/crudteste/add.xhtml" />
                         </p:submenu>
+
                         <p:separator />
-                    </p:submenu>             
+                    </p:submenu>
+                    <p:submenu label="Lancamentos e transações" icon="ui-icon-document"> 
+                        <p:submenu label="Comprar" icon="ui-icon-contact" rendered="true">
+
+                            <p:menuitem value="Exibir todas as compras"  icon="ui-icon-document-b"   url="/faces/operacoes/comprar/listall.xhtml" />
+                            <p:menuitem value="Efetuar compra" icon="ui-icon-newwin" url="/faces/operacoes/comprar/comprar.xhtml" />
+                        </p:submenu>
+                        <p:submenu label="Vender" icon="ui-icon-contact" rendered="true">
+
+                            <p:menuitem value="Exibir todas as vendas"  icon="ui-icon-document-b"   url="/faces/operacoes/vender/listall.xhtml" />
+                            <p:menuitem value="Efetuar venda" icon="ui-icon-newwin" url="/faces/operacoes/vender/vender.xhtml" />
+                        </p:submenu>
+                    </p:submenu>
                     <f:facet name="options">
                         <p:inputText style="margin-right:10px" placeholder="Search"/>
                         <p:commandButton type="button" value="Logout" icon="ui-icon-extlink" onclick="javascript:alert('procedimento de logout');"/>                  
                     </f:facet>
                 </p:menubar>
-                
+
             </h:form>
         </div>
     </h:body>

@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="../layout_operacoes.xhtml">
+        <ui:define name="content">
+            <h1>Efetuar compra</h1>
+            <h:form>
+                <p:messages id="messages" showDetail="true" closable="true">
+                    <p:autoUpdate />
+                </p:messages>
+
+                Adicione produtos em seu carrinho!!!! <br/>
+                <h:dataTable value="#{jsfProduto.all}" var="prod">
+                    <h:column>
+                        <h:outputText value="#{prod.codigo}"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{prod.descricao}"/>
+                    </h:column>
+                    <h:column>
+                        <h:commandButton value="+" action="#{jsfCompra.addProduto(prod)}" />
+                    </h:column>
+
+                </h:dataTable>
+
+            </h:form>
+
+            <br/>
+            <h:form>
+                Seu carrinho contem os itens
+                <h:dataTable value="#{jsfCompra.litem}" var="litem">
+                    <h:column>
+                        <h:outputText value="#{litem.produto1.codigo}" />
+                    </h:column>
+
+                    <h:column>
+                        <h:outputText value="#{litem.produto1.descricao}" />
+                    </h:column>
+
+                    <h:column>
+                        <h:outputText value="#{litem.quantidade}" />
+                    </h:column>
+
+                    <h:column>
+                        <h:commandButton value="-" action="#{jsfCompra.removeProduto(litem.produto1)}" />
+                    </h:column>
+                </h:dataTable>
+                <h:commandButton value="Efetivar compra" action="#{jsfCompra.concluirCompra()}" onclick="return confirm('Confirma conclusão da compra?');"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>
+

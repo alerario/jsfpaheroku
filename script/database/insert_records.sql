@@ -15,3 +15,10 @@ insert into teste values (3,'Nome 3', 5);
 insert into teste values (4,'Nome 4', 5);
 insert into teste values (5,'Nome 5', 3);
 insert into teste values (6,'Nome 6', 3);
+
+insert into produto  (descricao) values ('computador');
+insert into produto  (descricao) values ('roteador');
+insert into produto  (descricao) values ('mouse');
+insert into produto  (descricao) values ('monitor');
+insert into produto  (descricao) values ('teclado');
+insert into produto  (descricao) values ('webcam');

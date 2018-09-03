@@ -9,47 +9,48 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author utfpr
+ * @author alexandrelerario
  */
 @Entity
-@Table(name = "teste")
+@Table(name = "itemvenda")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Teste.findAll", query = "SELECT t FROM Teste t")
-    , @NamedQuery(name = "Teste.findByCodigo", query = "SELECT t FROM Teste t WHERE t.codigo = :codigo")
-    , @NamedQuery(name = "Teste.findByNome", query = "SELECT t FROM Teste t WHERE upper(t.nome) like :nome")}) //unica linha modificada. Todos os entities foram criados automaticamente no netbeans
-public class Teste implements Serializable {
-
-    @JoinColumn(name = "teste1", referencedColumnName = "codigo")
-    @ManyToOne
-    private Teste1 teste1;
+    @NamedQuery(name = "Itemvenda.findAll", query = "SELECT i FROM Itemvenda i")
+    , @NamedQuery(name = "Itemvenda.findByCodigo", query = "SELECT i FROM Itemvenda i WHERE i.codigo = :codigo")
+    , @NamedQuery(name = "Itemvenda.findByQuantidade", query = "SELECT i FROM Itemvenda i WHERE i.quantidade = :quantidade")})
+public class Itemvenda implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "codigo")
     private Integer codigo;
-    @Size(max = 255)
-    @Column(name = "nome")
-    private String nome;
+    @Column(name = "quantidade")
+    private Integer quantidade;
+    @JoinColumn(name = "produto", referencedColumnName = "codigo")
+    @ManyToOne(optional = false)
+    private Produto produto;
+    @JoinColumn(name = "venda", referencedColumnName = "codigo")
+    @ManyToOne(optional = false)
+    private Venda venda;
 
-    public Teste() {
+    public Itemvenda() {
     }
 
-    public Teste(Integer codigo) {
+    public Itemvenda(Integer codigo) {
         this.codigo = codigo;
     }
 
@@ -61,12 +62,28 @@ public class Teste implements Serializable {
         this.codigo = codigo;
     }
 
-    public String getNome() {
-        return nome;
+    public Integer getQuantidade() {
+        return quantidade;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
+
+    public Venda getVenda() {
+        return venda;
+    }
+
+    public void setVenda(Venda venda) {
+        this.venda = venda;
     }
 
     @Override
@@ -79,10 +96,10 @@ public class Teste implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Teste)) {
+        if (!(object instanceof Itemvenda)) {
             return false;
         }
-        Teste other = (Teste) object;
+        Itemvenda other = (Itemvenda) object;
         if ((this.codigo == null && other.codigo != null) || (this.codigo != null && !this.codigo.equals(other.codigo))) {
             return false;
         }
@@ -91,15 +108,7 @@ public class Teste implements Serializable {
 
     @Override
     public String toString() {
-        return "br.data.entity.Teste[ codigo=" + codigo + " ]";
-    }
-
-    public Teste1 getTeste1() {
-        return teste1;
-    }
-
-    public void setTeste1(Teste1 teste1) {
-        this.teste1 = teste1;
+        return "br.data.entity.Itemvenda[ codigo=" + codigo + " ]";
     }
     
 }
