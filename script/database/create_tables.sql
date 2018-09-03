@@ -17,6 +17,13 @@ CREATE TABLE public.teste
       ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
+CREATE TABLE public.produto
+(
+  codigo serial,
+  descricao character varying(40),
+  CONSTRAINT produto_pkey PRIMARY KEY (codigo)
+);
+
 CREATE TABLE public.compra
 (
   codigo serial,
