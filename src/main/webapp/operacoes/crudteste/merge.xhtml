@@ -15,21 +15,21 @@
                 </p:messages>
                 
                 Codigo:
-                <p:outputLabel value="#{jsfTeste.codigo}"  />
-                <h:inputHidden value="#{jsfTeste.codigo}"  />
+                <p:outputLabel value="#{jsfTeste2.codigo}"  />
+                <h:inputHidden value="#{jsfTeste2.codigo}"  />
                 <br></br>
                 
                 Nome:
-                <p:inputText value="#{jsfTeste.nome}" />
+                <p:inputText value="#{jsfTeste2.nome}" />
                 <br></br>
                 
                 Teste1:
-                <p:selectOneMenu value="#{jsfTeste.codTeste1}">
-                    <f:selectItems value="#{jsfTeste1.all}" var="t1" itemLabel="#{t1.nome}" itemValue="#{t1.codigo}"/>
+                <p:selectOneMenu value="#{jsfTeste2.codTeste1}">
+                    <f:selectItems value="#{jsfTeste12.all}" var="t1" itemLabel="#{t1.nome}" itemValue="#{t1.codigo}"/>
                 </p:selectOneMenu>
                 <br></br>
 
-                <p:commandButton value ="salvar modificacoes do registro" action="#{jsfTeste.merge()}" ajax="false" /> 
+                <p:commandButton value ="salvar modificacoes do registro" action="#{jsfTeste2.merge()}" ajax="false" /> 
 
             </h:form>
         </ui:define>

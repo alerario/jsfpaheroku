@@ -13,7 +13,7 @@
                 <p:messages id="messages" showDetail="true" closable="true">
                     <p:autoUpdate />
                 </p:messages>
-                <h:dataTable value="#{jsfTeste.all}" var="tes">
+                <h:dataTable value="#{jsfTeste2.all}" var="tes">
                     <h:column>
                         <h:outputText value="#{tes.codigo}" />
                     </h:column>
@@ -24,10 +24,10 @@
                         <h:outputText value="#{tes.teste1.nome}"/>
                     </h:column>
                     <h:column>
-                        <p:commandButton value="remover" action="#{jsfTeste.remove(tes)}" onclick="return confirm('Confirma exclusao?');" ajax="false"/> 
+                        <p:commandButton value="remover" action="#{jsfTeste2.remove(tes)}" onclick="return confirm('Confirma exclusao?');" ajax="false"/> 
                     </h:column>
                     <h:column>
-                        <p:commandButton value="editar" action="#{jsfTeste.update(tes)}" ajax="false"/> 
+                        <p:commandButton value="editar" action="#{jsfTeste2.update(tes)}" ajax="false"/> 
                     </h:column>
                 </h:dataTable>
             </h:form>
