@@ -1,1 +1,1 @@
-web: java  -jar target/endorsed/webapp-runner.jar --port $PORT  target/*.war
+web: java -jar lib/payara-micro-5.184.jar --deploy target/*.war --port $PORT
