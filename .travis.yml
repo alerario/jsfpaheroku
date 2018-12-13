@@ -1,19 +1,17 @@
 services:
 - postgresql
 before_script:
- - psql -c 'create database teste;' -U postgres
- - psql -U postgres -d teste -f script/database/create_tables.sql                 
- - psql -U postgres -d teste -f script/database/insert_records.sql
-
+- psql -c 'create database teste;' -U postgres
+- psql -U postgres -d teste -f script/database/create_tables.sql
+- psql -U postgres -d teste -f script/database/insert_records.sql
 language: java
 jdk:
 - oraclejdk8
 script: mvn clean verify -DskipTests=false -DskipITs=false -DskipSTs=false
-
 deploy:
   provider: heroku
   api_key:
-    secure: O/vbppESsg26ejT2645YJRtUh1B0cD8EYk8KzBgZtDqxK5uTIQfzJ8OAl0unYlQcNuXLqQyOoUkYuUa270ToGUPWD873k7IE7TXWJ3nVLhOrjnrEbh2B6Wm6Y7LvoCH8AGISWZ1FIOGsgvcJdQ0IYoc59T3vWJWb0OL3pqX/DW73p8VFLK1eFJ3VR/cofXDUleiaInUOy2hd5oX9ig/OV4Ma+xQhjm6D96phUUaxNAVqSucxUnaDKRzBp+TUhAGZ13yV4t9di4edm+vmWABSxKmpbhSMzuQ942GwecTW8fK4BgUB/7mPs5AFRREqUZLnTQNkD9naL0/rC2NVdu/LThj6M0zmPPGqh4WCD6mTCLzTFgvO5Xu1LGR35Mgy3PoGujV6IEXdkmrmUvFwg4Y/hlwlcIUd6GnrkJNGraxGtzd/Zio5N1qyEKnLt85wZHxSKudSzoxs8UqiRIlMeFUmPdzXOXm298nI8Pnw6IsBLWCN0QosWy8NNiqzyLi4P7/r3aI3Uw4Cikh5FHl6T8yn5IQKWhNqful7vJ4cW0y/DIQcPQ/awcDYj7GkXCP2pYA3f8/YsrIwFdTd7iHWxfL5aKGEGodjQOrBHkFlept9MiUj2Mi7yY4ZwT7bcoUJjfU0TFuYQ1R/zfDYQia4R3S5gJmXV2MgcauNS2TnGC0MMmo=
+    secure: oiz7MCjClJBYn1Dz7EP5sRfJlpqy2hTBXW56F9Unju+C6RFHT3YeKeUCTvTXdxvctiBNtPr09Jb3O4nRLeuX4a3Zjugg9SLALh07nvRVmOsCO5Q7vPGh7F31TsQ8utmZZBd5Rzx4DrlkmIK74uSXBRCPeV6zRVOmWXRx2s/MHu8Za3TbZX3Ax0fX+3fdgEfTOObECinAwVlRUCZEthniy7MaM5Glzh+nYPfprDwPTAUDyRp4rEjg7kq+PLDRCN3nVX0D+KjL+yzxEYVnRcNU16Sr57PFAUM4OVGoyYpsl8hqAGv7n4qe5ZTs7UIguVCVCW8/bdUyEwnNVyiC1rU4pdwSK7w42mmRISz0t5ZOuhsVYJuwhyatODKWOZnE6O3NRQouFF9h8di7MtnKYKiEKqBLYDdUrEgrFBO4ORjgQIXXjvokAC3drBe1bQrgRgQFhT2Nps3Ps+2tqebwOvGeG3u2SdsQoWNBnNIucyZJ4mwvRtyQmLR+YFHvSluQlWL6ke2MZIIaBoWZ1iM/JcfEqS+Frpg1euR2leIa37Sw7LefAAbc2qF2G3NijHetivo7cpYksNiCbIgplc+zjx9HqaM0uOJw9JxlwdyAo5cNagEhb+zYp3LsL2PACBfNGf7Yf8lU7V4braOtqe0FEpQTooB8Ukag1ouNT1zT8NoNEB0=
   app: jsfpaheroku
   on:
     repo: alerario/jsfpaheroku
