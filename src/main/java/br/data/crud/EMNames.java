@@ -12,7 +12,7 @@ import java.util.Map;
  *
  * @author alexandrelerario
  */
-public class EMNames {
+public class EMNames implements java.io.Serializable {
 
     public static final String EMN1 = "sfpaPU";
 
@@ -20,7 +20,8 @@ public class EMNames {
 
         String heroku_db = System.getenv("DATABASE_URL"); // variavel de ambiente criada pelo Heroku
         Map<String, String> properties = new HashMap<>();
-
+        
+        System.out.println(" ====== metodo em EMNames ===");
         if (heroku_db == null) { //caso nao tenhamos a variavel de ambiente       
             properties.put("javax.persistence.jdbc.url", "jdbc:postgresql://localhost:5432/teste");
             properties.put("javax.persistence.jdbc.user", "postgres");
