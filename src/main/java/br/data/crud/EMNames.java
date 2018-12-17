@@ -32,7 +32,7 @@ public class EMNames implements java.io.Serializable {
             //   properties.put("javax.persistence.jdbc.driver", "org.postgresql.Driver");
             //   properties.put("javax.persistence.jdbc.password", "037e654cd0b0f5b25b3973734a99cc9b3cec28a354eee53d92d742e0e4737ce3");
             //obter demais variaveis e configurar persistence.xml
-            String jdbc_database_url = System.getenv("JDBC_DATABASE_URL")+ "?useSSL=true&requireSSL=true?";
+            String jdbc_database_url = System.getenv("JDBC_DATABASE_URL")+ "&SSL=true";
             String jdbc_database_username = System.getenv("JDBC_DATABASE_USERNAME");
             String jdbc_database_password = System.getenv("JDBC_DATABASE_PASSWORD");
 
