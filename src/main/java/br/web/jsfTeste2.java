@@ -20,7 +20,7 @@ import javax.faces.context.FacesContext;
 //named e utilizado aqui ao inves de managedbean
 @Named(value = "jsfTeste2")
 @RequestScoped
-public class jsfTeste2 {
+public class jsfTeste2 implements java.io.Serializable{
 
     /**
      * Creates a new instance of jsfTeste2

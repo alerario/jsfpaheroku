@@ -21,7 +21,6 @@ public class EMNames implements java.io.Serializable {
         String heroku_db = System.getenv("DATABASE_URL"); // variavel de ambiente criada pelo Heroku
         Map<String, String> properties = new HashMap<>();
         
-        System.out.println(" ====== metodo em EMNames ===");
         if (heroku_db == null) { //caso nao tenhamos a variavel de ambiente       
             properties.put("javax.persistence.jdbc.url", "jdbc:postgresql://localhost:5432/teste");
             properties.put("javax.persistence.jdbc.user", "postgres");
@@ -37,12 +36,10 @@ public class EMNames implements java.io.Serializable {
             String jdbc_database_username = System.getenv("JDBC_DATABASE_USERNAME");
             String jdbc_database_password = System.getenv("JDBC_DATABASE_PASSWORD");
 
-            System.out.println(" ====== Obteve valores da variavel de ambiente ===");
             properties.put("javax.persistence.jdbc.url", jdbc_database_url);
             properties.put("javax.persistence.jdbc.user", jdbc_database_username);
             properties.put("javax.persistence.jdbc.password", jdbc_database_password);
             properties.put("javax.persistence.jdbc.driver", "org.postgresql.Driver"); //configurando driver para postgres
-System.out.println(" ====== configurou o properties para acesso ao banco ===");
         }
         return properties;
     }

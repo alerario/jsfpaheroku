@@ -13,7 +13,7 @@ import javax.persistence.Persistence;
  *
  * @author alexandrelerario
  */
-public class CrudTeste extends AbstractCrud<br.data.entity.Teste> {
+public class CrudTeste extends AbstractCrud<br.data.entity.Teste>  {
 
     private EntityManager em;
 
