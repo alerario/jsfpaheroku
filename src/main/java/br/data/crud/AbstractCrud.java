@@ -8,7 +8,7 @@ package br.data.crud;
 import java.util.List;
 import javax.persistence.EntityManager;
 
-public abstract class AbstractCrud<T> implements java.io.Serializable{
+public abstract class AbstractCrud<T> {
 
     private Class<T> entityClass;
 
