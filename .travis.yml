@@ -6,7 +6,7 @@ before_script:
 - psql -U postgres -d teste -f script/database/insert_records.sql
 language: java
 jdk:
-- oraclejdk8
+- openjdk8
 script: mvn clean verify -DskipTests=false -DskipITs=false -DskipSTs=false
 deploy:
   provider: heroku
